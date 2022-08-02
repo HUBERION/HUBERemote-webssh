@@ -8,6 +8,8 @@ import weakref
 import paramiko
 import tornado.web
 
+from webssh.graphql import get_host_and_port_from_api
+
 from concurrent.futures import ThreadPoolExecutor
 from tornado.ioloop import IOLoop
 from tornado.options import options
@@ -487,8 +489,10 @@ class IndexHandler(MixinHandler, tornado.web.RequestHandler):
     def head(self):
         pass
 
-    def get(self):
-        self.render('index.html', debug=self.debug, font=self.font)
+    async def get(self, sessionId):
+        (host, port) = await get_host_and_port_from_api(sessionId)
+
+        self.render('index.html', debug=self.debug, font=self.font, host=host, port=port)
 
     @tornado.gen.coroutine
     def post(self):

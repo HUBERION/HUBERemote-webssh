@@ -71,7 +71,7 @@ jQuery(function($){
       name = names[i];
       value = data.get(name);
       if (value){
-        window.localStorage.setItem(name, value);
+        window.sessionStorage.setItem(name, value);
       }
     }
   }
@@ -82,7 +82,7 @@ jQuery(function($){
 
     for (i=0; i < names.length; i++) {
       name = names[i];
-      value = window.localStorage.getItem(name);
+      value = window.sessionStorage.getItem(name);
       if (value) {
         $('#'+name).val(value);
       }
@@ -328,7 +328,7 @@ jQuery(function($){
     status.html(text.split('\n').join('<br/>'));
 
     if (to_populate && validated_form_data) {
-      populate_form(validated_form_data);
+      // populate_form(validated_form_data);
       validated_form_data = undefined;
     }
 
@@ -850,7 +850,7 @@ jQuery(function($){
       waiter.show();
       connect(url_form_data);
     } else {
-      restore_items(fields);
+      // restore_items(fields);
       form_container.show();
     }
   }
