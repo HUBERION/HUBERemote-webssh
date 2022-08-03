@@ -28,7 +28,7 @@ async def get_host_and_port_from_api(sessionId: str) -> Tuple[str, int]:
                     data {{
                         attributes {{
                             supporterPort
-                            clientHost
+                            currentHUB
                         }}
                     }}
                 }}
@@ -37,6 +37,6 @@ async def get_host_and_port_from_api(sessionId: str) -> Tuple[str, int]:
         result = await session.execute(gql(query))
 
         return (
-            result["sessions"]["data"][0]["attributes"]["clientHost"],
+            result["sessions"]["data"][0]["attributes"]["currentHUB"],
             result["sessions"]["data"][0]["attributes"]["supporterPort"]
         )
