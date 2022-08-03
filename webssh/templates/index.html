@@ -44,11 +44,11 @@
         <div class="row">
           <div class="col">
             <label for="Hostname">Hostname</label>
-            <input class="form-control" type="text" id="hostname" name="hostname" value="{{ host }}" required>
+            <input class="form-control" type="text" id="hostname" name="hostname" value="{{ host }}" required readonly>
           </div>
           <div class="col">
             <label for="Port">Port</label>
-            <input class="form-control" type="number" id="port" name="port" placeholder="22" value="{{ port }}" min=1 max=65535>
+            <input class="form-control" type="number" id="port" name="port" placeholder="22" value="{{ port }}" min=0 max=65535 readonly>
           </div>
         </div>
         <div class="row">
