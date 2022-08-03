@@ -495,7 +495,7 @@ class IndexHandler(MixinHandler, tornado.web.RequestHandler):
         self.render('index.html', debug=self.debug, font=self.font, host=host, port=port)
 
     @tornado.gen.coroutine
-    def post(self):
+    def post(self, _sessionId):
         if self.debug and self.get_argument('error', u''):
             # for testing purpose only
             raise ValueError('Uncaught exception')
